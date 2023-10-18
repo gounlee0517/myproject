@@ -1,4 +1,6 @@
 // //TMDB
+const apiKey = '8979470c223e65e835096f64e704140f'; 
+const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
 
 const options = {
   method: 'GET',

@@ -13,52 +13,64 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     }
     return response.json(); // JSON 데이터 가져오기
   })
+  //영화 리스트
   .then(data => {
     const results = data.results;
-    const movieList = document.getElementsByClassName('item');
 
+    //변수로 지정하는 방법?
     results.forEach(movie => {
       const item = document.createElement("div");
       const title = document.createElement('h4');
       const text = document.createElement('p');
       const poster = document.createElement('img');
 
-      poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-      title.innerHTML = `${movie.title}`;
-      text.innerHTML = `${movie.overview} <br><br>⭐${movie.vote_average}`;
-
       item.appendChild(poster)
       item.appendChild(title)
       item.appendChild(text)
+
+      poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      title.innerHTML = `${movie.title}`;
+      text.innerHTML = `${movie.overview} <br><br>⭐${movie.vote_average}`;
 
       const container = document.getElementsByClassName("container")[0];
       container.appendChild(item)
 
       item.classList.add('card');
+      title.classList.add('title');
+      poster.classList.add('poster');
     });
 
-    //1. 검색어를 담는 변수를 만든다
-    //2. 이 변수를 데이터 안에서 찾는다
-    //3. 데이터를 찾아 일치하는 영화가 있으면 그 영화만 보여준다 or 
-    //4. 일치하는 영화가 없으면 빈 창 보여주기 
-
-    const searchInput = document.getElementById('search')[0];
-    const searchBtn = document.getElementById('searchBtn')[0];
+    const searchInput = document.getElementById('search');
+    const searchBtn = document.getElementById('searchBtn');
 
     searchBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const val = searchInput.value;
-      val.toLowerCase();
-    })
+      const val = searchInput.value.toLowerCase();
+      const movieCards = document.querySelectorAll('.card');
 
-    //typeError: Cannot read properties of undefined (reading 'addEventlistener')at index.js:46:15
-    //검색하고 불러오려면 위 코드처럼 카드를 다시 붙여야 하는가
-    //js파일에서 클래스를 부여하는 방법 (성공!)
+      movieCards.forEach(card => {
+        const title = card.querySelector('.title').textContent.toLowerCase(); // 카드 안의 타이틀 요소 가져오기
+        if (title.includes(val)) {
+          card.style.display = 'block'; // 일치하면 카드 보이기
+        } else {
+          card.style.display = 'none'; // 일치하지 않으면 카드 숨기기
+        }
+      });
+    });
+
   })
+
   .catch(error => {
     console.error('오류 발생:', error);
   });
 
- 
+  document.querySelector('.nav-search').addEventListener('click', function(){
+    window.scrollTo(0, 200, window.innerHeight);
+  })
+
+  document.querySelector('.nav-movielist').addEventListener('click', function(){
+    window.scrollTo(0, 500, window.innerHeight);
+  })
+
 
 

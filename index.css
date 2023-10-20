@@ -5,6 +5,7 @@ html, body {
   text-align: center;
   font-family: 'Gmarket Sans';
   background-color: #f5f6f0;
+  scroll-behavior: smooth;
 }
 
 p {
@@ -36,6 +37,12 @@ a {
 .navbar-logo {
   padding-left: 50px;
   text-decoration: none;
+
+}
+
+.navbar-logo > a {
+  font-family: 'Super Dessert';
+  font-size: 27px;  
 }
 
 .navbar-menu {

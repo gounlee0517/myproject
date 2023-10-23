@@ -17,7 +17,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
   .then(data => {
     const results = data.results;
 
-    //변수로 지정하는 방법?
+    //영화 카트 붙이기
     results.forEach(movie => {
       const item = document.createElement("div");
       const title = document.createElement('h4');
@@ -35,13 +35,31 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       const container = document.getElementsByClassName("container")[0];
       container.appendChild(item)
 
+      //이미지 클릭하면 id alert에 띄우기
+      poster.onclick = openImg;
+
+      function openImg(event) {
+        event.target.addEventListener('click', () => {
+          alert(event.target.textContent = `id : ${movie.id}`);
+        })
+      }
+
       item.classList.add('card');
       title.classList.add('title');
       poster.classList.add('poster');
+
     });
 
+    //영화 검색 기능
     const searchInput = document.getElementById('search');
     const searchBtn = document.getElementById('searchBtn');
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+      }
+    });
 
     searchBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -51,9 +69,9 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       movieCards.forEach(card => {
         const title = card.querySelector('.title').textContent.toLowerCase(); // 카드 안의 타이틀 요소 가져오기
         if (title.includes(val)) {
-          card.style.display = 'block'; // 일치하면 카드 보이기
+          card.style.display = 'block';
         } else {
-          card.style.display = 'none'; // 일치하지 않으면 카드 숨기기
+          card.style.display = 'none';
         }
       });
     });
@@ -64,13 +82,17 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     console.error('오류 발생:', error);
   });
 
-  document.querySelector('.nav-search').addEventListener('click', function(){
-    window.scrollTo(0, 200, window.innerHeight);
-  })
+  
+//스크롤 이벤트
+document.querySelector('.nav-search').addEventListener('click', function () {
+  window.scrollTo(0, 800, window.innerHeight);
+})
 
-  document.querySelector('.nav-movielist').addEventListener('click', function(){
-    window.scrollTo(0, 500, window.innerHeight);
-  })
+document.querySelector('.nav-movielist').addEventListener('click', function () {
+  window.scrollTo(0, 1200, window.innerHeight);
+})
 
-
+document.querySelector('.footer-main').addEventListener('click', function () {
+  window.scrollTo(0, 0, window.innerHeight);
+})
 

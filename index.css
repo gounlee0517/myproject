@@ -116,6 +116,7 @@ header > h1 {
   grid-row-gap: 50px;
 
   padding: 70px;
+  margin-bottom: 50px;
 }
 
 .container > div {

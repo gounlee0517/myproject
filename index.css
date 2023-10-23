@@ -43,7 +43,6 @@ a {
 header {
   width: 100%;
   height: 900px;
-  color: #999487;
   margin-top: -130px;
 
   background-image: url(./img.webp);
@@ -113,7 +112,7 @@ header > h1 {
 }
 
 .container > div {
-  color:#f5f6f0;
+  color: #999487;
 
   padding: 15px;
   margin-bottom: 50px;
@@ -137,6 +136,7 @@ header > h1 {
   font-family: 'rosehot free version';
   font-weight: bolder;
   font-size: 18px;
+  color: white;
 }
 
 .container > div > p {

@@ -30,7 +30,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
       poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
       title.innerHTML = `${movie.title}`;
-      text.innerHTML = `${movie.overview} <br><br>⭐${movie.vote_average}`;
+      text.innerHTML = `${movie.overview} <br><br>⭐<br>${movie.vote_average}`;
 
       const container = document.getElementsByClassName("container")[0];
       container.appendChild(item)

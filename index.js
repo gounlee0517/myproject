@@ -49,18 +49,16 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       item.classList.add('card');
       title.classList.add('title');
       poster.classList.add('poster');
+
+      //card border 스타일 주기 -> div안에 있는 모든 요소들에게 테두리가 생김
+      item.addEventListener("mouseover", (event) => {
+        event.target.style.border = '1px solid #FFCA3D';
+        event.target.style.transition = 'all 0.7s ease-in-out';
+      }, false);
+      item.addEventListener("mouseout", (event) => {
+        event.target.style.border = 'none';
+      }, false);
     });
-
-    //card border 스타일 주기
-    const cards = document.querySelectorAll('.card');
-
-    cards.addEventListener("mouseover", (event) => {
-      event.target.style.border = '1px solid white';
-    }, false);
-
-    cards.addEventListener("mouseout", (event) => {
-      event.target.style.border = 'none';
-    }, false);
 
     //영화 검색 기능
     const searchInput = document.getElementById('search');
@@ -94,7 +92,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     console.error('오류 발생:', error);
   });
 
-  
+
 //스크롤 이벤트
 document.querySelector('.nav-search').addEventListener('click', function () {
   window.scrollTo(0, 800, window.innerHeight);

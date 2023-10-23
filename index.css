@@ -121,7 +121,6 @@ header > h1 {
 .container > div {
   padding: 15px;
   margin-bottom: 50px;
-
 }
 
 /*display와 transition은 한 번에 쓸 수 없음 js로 구현해보기*/

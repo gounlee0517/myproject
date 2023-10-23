@@ -104,7 +104,7 @@ document.querySelector('.nav-search').addEventListener('click', function () {
 })
 
 document.querySelector('.nav-movielist').addEventListener('click', function () {
-  window.scrollTo(0, 1200, window.innerHeight);
+  window.scrollTo(0, 1220, window.innerHeight);
 })
 
 document.querySelector('.footer-main').addEventListener('click', function () {

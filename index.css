@@ -123,12 +123,6 @@ header > h1 {
   margin-bottom: 50px;
 }
 
-/*display와 transition은 한 번에 쓸 수 없음 js로 구현해보기*/
-/*.container > div:hover {
-  cursor: pointer;
-  border: 1px solid #FFCA3D;  
-}*/
-
 .container > div > img {
   width: 200px;
   height: 300px;

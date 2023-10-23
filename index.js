@@ -50,11 +50,16 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       title.classList.add('title');
       poster.classList.add('poster');
 
-      //card border 스타일 주기 -> div안에 있는 모든 요소들에게 테두리가 생김
+      //card border 스타일 주기 
       item.addEventListener("mouseover", (event) => {
         event.target.style.border = '1px solid #FFCA3D';
-        event.target.style.transition = 'all 0.7s ease-in-out';
+        event.target.style.transition = 'all 0.5s ease-in-out';
+        
+        title.style.border = 'none';
+        text.style.border = 'none';
+        poster.style.border = 'none';
       }, false);
+
       item.addEventListener("mouseout", (event) => {
         event.target.style.border = 'none';
       }, false);

@@ -49,8 +49,17 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       item.classList.add('card');
       title.classList.add('title');
       poster.classList.add('poster');
-
     });
+
+    const cards = document.querySelectorAll('.card');
+
+    cards.addEventListener("mouseover", (event) => {
+      event.target.style.border = '1px solid white';
+    }, false);
+
+    cards.addEventListener("mouseout", (event) => {
+      event.target.style.border = 'none';
+    }, false);
 
     //영화 검색 기능
     const searchInput = document.getElementById('search');

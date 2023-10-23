@@ -145,6 +145,10 @@ header > h1 {
   line-height: 1.5;
 }
 
+.container > div > p > span {
+  color: #FFCA3D;
+}
+
 footer {
   width: 90%;
   padding: 10px; 
@@ -159,6 +163,7 @@ footer {
 footer > p {
   font-family: 'nanum godic';
   font-size: 14px;
+  color: #999487;
 }
 
 .footer-main:hover {

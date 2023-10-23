@@ -120,6 +120,7 @@ header > h1 {
 
 .container > div {
   padding: 15px;
+  padding-top: 25px;
   margin-bottom: 50px;
 }
 

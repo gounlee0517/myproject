@@ -51,6 +51,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       poster.classList.add('poster');
     });
 
+    //card border 스타일 주기
     const cards = document.querySelectorAll('.card');
 
     cards.addEventListener("mouseover", (event) => {
